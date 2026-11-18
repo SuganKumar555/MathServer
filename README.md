@@ -76,7 +76,7 @@ Publish the website in Localhost.
 </html> 
 
 
-
+views.py
 from django.shortcuts import render
 
 def calculate_rate(request):
@@ -87,6 +87,7 @@ def calculate_rate(request):
     print(f"Initial Customer: {init}numbers \n Lost Customer: {lost}numbers \n Churn Rate: {ChurnRate}")
     return render(request, "myapp/math.html",{"init": init, "lost": lost, "ChurnRate": ChurnRate})
 
+urls.py
 from django.contrib import admin
 from django.urls import path
 from myapp import views
