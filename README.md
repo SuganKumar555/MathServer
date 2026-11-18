@@ -43,7 +43,6 @@ Publish the website in Localhost.
 
 ## PROGRAM:
 ```
-rectangular.html
 <html>
     <head>
         <title>Simple Webpage</title>
@@ -77,13 +76,14 @@ rectangular.html
 </html> 
 
 
+
 from django.shortcuts import render
 
 def calculate_rate(request):
     
     lost=float(request.POST.get("CustLost",'0'))
     init=float(request.POST.get("InitCust",'0'))
-    ChurnRate = (lost/init)*100 if request.method == 'POST' else 0
+    ChurnRate = ((lost)*100)/init if request.method == 'POST' else 0
     print(f"Initial Customer: {init}numbers \n Lost Customer: {lost}numbers \n Churn Rate: {ChurnRate}")
     return render(request, "myapp/math.html",{"init": init, "lost": lost, "ChurnRate": ChurnRate})
 
@@ -99,10 +99,10 @@ urlpatterns = [path('', views.calculate_rate, name='calculate_rate'),]
 ```
 
 ## OUTPUT - SERVER SIDE:
-![alt text](<Screenshot 2026-11-18 092426.png>)
+![alt text](<Screenshot 2026-11-18 094211.png>)
 
 ## OUTPUT - WEBPAGE:
-![alt text](<Screenshot 2026-11-18 092408.png>)
+![alt text](<Screenshot 2026-11-18 094102.png>)
 
 ## RESULT:
 The the web page to calculate Churn Rate using server-side scripts is created successfully.
